@@ -1,9 +1,8 @@
 import { useState } from "react"
 
-function SearchForm(){
+function SearchForm({setCourseData}){
     const [country, setCountry] = useState("")
     const [region, setRegion] = useState("")
-    const [courseData, setCourseData] = useState([])
 
     var url = 'https://io.discgolfapi.com/v1/courses'
 
