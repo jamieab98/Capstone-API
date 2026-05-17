@@ -3,6 +3,7 @@ import { useState } from "react"
 function SearchForm(){
     const [country, setCountry] = useState("")
     const [region, setRegion] = useState("")
+    const [courseData, setCourseData] = useState([])
 
     var url = 'https://io.discgolfapi.com/v1/courses'
 
@@ -18,7 +19,14 @@ function SearchForm(){
         else if(country == "" && region != ""){
             return(console.log('Must provide a country code if searching by region'))
         }
-        console.log(url)
+
+        fetch(url)
+        .then(response=>response.json())
+        .then((data)=>{
+            setCourseData(data["courses"])
+        })
+        .catch(error=>console.log(error))
+
     }
 
     return(
