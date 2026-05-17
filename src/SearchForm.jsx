@@ -5,8 +5,20 @@ function SearchForm({setCourseData}){
     const [country, setCountry] = useState("")
     const [region, setRegion] = useState("")
     const [total, setTotal] = useState(0)
+    const [offset, setOffset] = useState(0)
+    const [hasSearched, setHasSearched] = useState(false)
 
     var url = 'https://io.discgolfapi.com/v1/courses'
+
+    useEffect(()=>{
+        if (hasSearched == false){
+            return
+        }
+        else if (hasSearched == true){
+            setUrl()
+            fetchData()
+        }
+    }, [offset])
 
     function setUrl(){
         if (country != "" && region != ""){
@@ -19,7 +31,7 @@ function SearchForm({setCourseData}){
             return(console.log('Must provide a country code if searching by region'))
         }
         else{
-            url = `${url}?limit=20`
+            url = `${url}?limit=20&offset=${offset}`
         }
     }
 
@@ -35,11 +47,9 @@ function SearchForm({setCourseData}){
 
     function handleSearch(e){
         e.preventDefault()
-
+        setHasSearched(true)
         setUrl()
-
         fetchData()
-
     }
 
     return(
