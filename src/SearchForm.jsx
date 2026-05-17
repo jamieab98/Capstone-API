@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useEffect } from "react"
 
 function SearchForm({setCourseData}){
     const [country, setCountry] = useState("")
@@ -6,16 +7,20 @@ function SearchForm({setCourseData}){
     const [total, setTotal] = useState(0)
     const [offset, setOffset] = useState(0)
 
+    useEffect(()=>{
+        handleSearch()
+    }, [offset])
+
     var url = 'https://io.discgolfapi.com/v1/courses'
 
     function handleSearch(e){
-        e.preventDefault()   
+        e.preventDefault()
 
         if (country != "" && region != ""){
-            url = `${url}?country=${country}&region=${region}&limit=20&offset=5`
+            url = `${url}?country=${country}&region=${region}&limit=20&offset=${offset}`
         }
         else if (country != "" && region == ""){
-            url = `${url}?country=${country}&limit=20`
+            url = `${url}?country=${country}&limit=20&offset=${offset}`
         }
         else if(country == "" && region != ""){
             return(console.log('Must provide a country code if searching by region'))
@@ -28,7 +33,8 @@ function SearchForm({setCourseData}){
         .then(response=>response.json())
         .then((data)=>{
             setCourseData(data["courses"])
-            setTotal(data['count'])
+            setTotal(data['total'])
+            console.log(data['total'])
         })
         .catch(error=>console.log(error))
 
@@ -36,7 +42,7 @@ function SearchForm({setCourseData}){
 
     function nextPage(){
         if (offset + 20 < total){
-        setOffset(offset + 20)
+            setOffset(offset + 20)
         }
     }
 
@@ -56,9 +62,9 @@ function SearchForm({setCourseData}){
                 <input type="text" id="region" onChange={(e)=>setRegion(e.target.value)} autoComplete="false"></input>
                 <button type="submit">Search</button>
                 <br/>
-                <button onClick={previousPage}>Previous Page</button>
-                <button onClick={nextPage}>Next Page</button>
             </form>
+            <button onClick={previousPage}>Previous Page</button>
+            <button onClick={nextPage}>Next Page</button>
         </div>
     )
 }
