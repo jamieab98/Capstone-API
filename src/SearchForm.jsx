@@ -4,6 +4,7 @@ function SearchForm({setCourseData}){
     const [country, setCountry] = useState("")
     const [region, setRegion] = useState("")
     const [total, setTotal] = useState(0)
+    const [offset, setOffset] = useState(0)
 
     var url = 'https://io.discgolfapi.com/v1/courses'
 
@@ -11,13 +12,16 @@ function SearchForm({setCourseData}){
         e.preventDefault()   
 
         if (country != "" && region != ""){
-            url = `${url}?country=${country}&region=${region}`
+            url = `${url}?country=${country}&region=${region}&limit=20&offset=5`
         }
         else if (country != "" && region == ""){
-            url = `${url}?country=${country}`
+            url = `${url}?country=${country}&limit=20`
         }
         else if(country == "" && region != ""){
             return(console.log('Must provide a country code if searching by region'))
+        }
+        else{
+            url = `${url}?limit=20&offset=${offset}`
         }
 
         fetch(url)
@@ -30,6 +34,18 @@ function SearchForm({setCourseData}){
 
     }
 
+    function nextPage(){
+        if (offset + 20 < total){
+        setOffset(offset + 20)
+        }
+    }
+
+    function previousPage(){
+        if (offset != 0){
+            setOffset(offset - 20)
+        }
+    }
+
     return(
         <div>
             <h3>Course Search</h3>
@@ -39,6 +55,9 @@ function SearchForm({setCourseData}){
                 <label htmlFor="region">Region Code:</label>
                 <input type="text" id="region" onChange={(e)=>setRegion(e.target.value)} autoComplete="false"></input>
                 <button type="submit">Search</button>
+                <br/>
+                <button onClick={previousPage}>Previous Page</button>
+                <button onClick={nextPage}>Next Page</button>
             </form>
         </div>
     )
