@@ -4,9 +4,21 @@ function SearchForm(){
     const [country, setCountry] = useState("")
     const [region, setRegion] = useState("")
 
+    var url = 'https://io.discgolfapi.com/v1/courses'
+
     function handleSearch(e){
-        e.preventDefault()
-        console.log(`Looking for courses in ${country} and ${region}`)
+        e.preventDefault()   
+
+        if (country != "" && region != ""){
+            url = `${url}?country=${country}&region=${region}`
+        }
+        else if (country != "" && region == ""){
+            url = `${url}?country=${country}`
+        }
+        else if(country == "" && region != ""){
+            return(console.log('Must provide a country code if searching by region'))
+        }
+        console.log(url)
     }
 
     return(
