@@ -52,6 +52,10 @@ function SearchForm({setCourseData}){
         fetchData()
     }
 
+    function addOffset(){
+        setOffset(prev => prev + 20)
+    }
+
     return(
         <div>
             <h3>Course Search</h3>
@@ -64,7 +68,7 @@ function SearchForm({setCourseData}){
                 <br/>
             </form>
             <button>Previous Page</button>
-            <button>Next Page</button>
+            <button onClick={addOffset}>Next Page</button>
         </div>
     )
 }
