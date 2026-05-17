@@ -10,6 +10,7 @@ function App(){
     <div>
       <h1>App Component</h1>
       <SearchForm setCourseData={setCourseData}/>
+      <br/>
       <Courses courseData={courseData}/>
     </div>
   )

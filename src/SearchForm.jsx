@@ -3,6 +3,7 @@ import { useState } from "react"
 function SearchForm({setCourseData}){
     const [country, setCountry] = useState("")
     const [region, setRegion] = useState("")
+    const [total, setTotal] = useState(0)
 
     var url = 'https://io.discgolfapi.com/v1/courses'
 
@@ -23,6 +24,7 @@ function SearchForm({setCourseData}){
         .then(response=>response.json())
         .then((data)=>{
             setCourseData(data["courses"])
+            setTotal(data['count'])
         })
         .catch(error=>console.log(error))
 
