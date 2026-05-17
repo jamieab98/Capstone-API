@@ -22,10 +22,10 @@ function SearchForm({setCourseData}){
 
     function setUrl(){
         if (country != "" && region != ""){
-            url = `${url}?country=${country}&region=${region}&limit=20`
+            url = `${url}?country=${country}&region=${region}&limit=20offset=${offset}`
         }
         else if (country != "" && region == ""){
-            url = `${url}?country=${country}&limit=20`
+            url = `${url}?country=${country}&limit=20offset=${offset}`
         }
         else if(country == "" && region != ""){
             return(console.log('Must provide a country code if searching by region'))
@@ -53,7 +53,21 @@ function SearchForm({setCourseData}){
     }
 
     function addOffset(){
-        setOffset(prev => prev + 20)
+        if (offset + 20 < total){
+            setOffset(prev => prev + 20)
+        }
+        else{
+            console.log('You cannot go further forward')
+        }
+    }
+
+    function removeOffset(){
+        if (offset != 0){
+            setOffset(prev => prev - 20)
+        }
+        else{
+            console.log('You cannot go further back')
+        }
     }
 
     return(
@@ -67,7 +81,7 @@ function SearchForm({setCourseData}){
                 <button type="submit">Search</button>
                 <br/>
             </form>
-            <button>Previous Page</button>
+            <button onClick={removeOffset}>Previous Page</button>
             <button onClick={addOffset}>Next Page</button>
         </div>
     )
