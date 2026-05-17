@@ -8,9 +8,7 @@ function SearchForm({setCourseData}){
 
     var url = 'https://io.discgolfapi.com/v1/courses'
 
-    function handleSearch(e){
-        e.preventDefault()
-
+    function setUrl(){
         if (country != "" && region != ""){
             url = `${url}?country=${country}&region=${region}&limit=20`
         }
@@ -23,6 +21,12 @@ function SearchForm({setCourseData}){
         else{
             url = `${url}?limit=20`
         }
+    }
+
+    function handleSearch(e){
+        e.preventDefault()
+
+        setUrl()
 
         fetch(url)
         .then(response=>response.json())
