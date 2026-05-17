@@ -23,18 +23,22 @@ function SearchForm({setCourseData}){
         }
     }
 
+    function fetchData(){
+        fetch(url)
+        .then(response=>response.json())
+        .then((data)=>{
+            setCourseData(data['courses'])
+            setTotal(data['total'])
+        })
+        .catch(error=>console.log(error))
+    }
+
     function handleSearch(e){
         e.preventDefault()
 
         setUrl()
 
-        fetch(url)
-        .then(response=>response.json())
-        .then((data)=>{
-            setCourseData(data["courses"])
-            setTotal(data['total'])
-        })
-        .catch(error=>console.log(error))
+        fetchData()
 
     }
 
