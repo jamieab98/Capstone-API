@@ -9,7 +9,7 @@ function App(){
 
   return(
     <div className={styles.app}>
-      <h1>UDiscCovery</h1>
+      <h1 className={styles.title}>U-Discovery</h1>
       <SearchForm setCourseData={setCourseData}/>
       <br/>
       <Courses courseData={courseData}/>

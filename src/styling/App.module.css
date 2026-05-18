@@ -3,4 +3,13 @@
     flex-direction: column;
     border: 1px black solid;
     align-items: center;
+    background-color: #AB978C;
+}
+
+.title{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #6B7C98;
+    width: 33%;
+    text-align: center;
 }
