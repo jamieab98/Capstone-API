@@ -1,13 +1,14 @@
 import SearchForm from "./SearchForm"
 import Courses from "./Courses"
 import { useState } from "react"
+import styles from "./styling/App.module.css"
 
 function App(){
 
   const [courseData, setCourseData] = useState([])
 
   return(
-    <div>
+    <div className={styles.app}>
       <h1>UDiscCovery</h1>
       <SearchForm setCourseData={setCourseData}/>
       <br/>
