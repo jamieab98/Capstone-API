@@ -8,7 +8,7 @@ function App(){
 
   return(
     <div>
-      <h1>App Component</h1>
+      <h1>UDiscCovery</h1>
       <SearchForm setCourseData={setCourseData}/>
       <br/>
       <Courses courseData={courseData}/>
