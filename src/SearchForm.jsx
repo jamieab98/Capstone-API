@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useEffect } from "react"
+import styles from "./styling/SearchForm.module.css"
 
 function SearchForm({setCourseData}){
     const [country, setCountry] = useState("")
@@ -71,18 +72,26 @@ function SearchForm({setCourseData}){
     }
 
     return(
-        <div>
-            <h3>Course Search</h3>
-            <form onSubmit={handleSearch}>
-                <label htmlFor="country">Country Code:</label>
-                <input type="text" id="country" onChange={(e)=>setCountry(e.target.value)} autoComplete="false"></input>
-                <label htmlFor="region">Region Code:</label>
-                <input type="text" id="region" onChange={(e)=>setRegion(e.target.value)} autoComplete="false"></input>
-                <button type="submit">Search</button>
-                <br/>
-            </form>
-            <button onClick={removeOffset}>Previous Page</button>
-            <button onClick={addOffset}>Next Page</button>
+        <div className={styles.SearchForm}>
+            <div className={styles.Form}>
+                <h3 className={styles.FormTitle}>Course Search</h3>
+                <form onSubmit={handleSearch} className={styles.FormInputs}>
+                    <div className={styles.CountryInput}>
+                        <label htmlFor="country">Country Code:</label>
+                        <input type="text" id="country" onChange={(e)=>setCountry(e.target.value)} autoComplete="false" className={styles.FormInput}></input>
+                    </div>
+                    <div className={styles.RegionInput}>
+                        <label htmlFor="region">Region Code:</label>
+                        <input type="text" id="region" onChange={(e)=>setRegion(e.target.value)} autoComplete="false" className={styles.FormInput}></input>
+                    </div>
+                    <button type="submit" className={styles.SearchButton}>Search</button>
+                    <br/>
+                </form>
+            </div>
+            <div className={styles.PageButtons}>
+                <button onClick={removeOffset}>Previous Page</button>
+                <button onClick={addOffset}>Next Page</button>
+            </div>
         </div>
     )
 }

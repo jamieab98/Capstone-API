@@ -1,9 +1,10 @@
 .app{
     display: flex;
     flex-direction: column;
-    border: 1px black solid;
     align-items: center;
     background-color: #AB978C;
+    border: 1px solid black;
+    width: 100%
 }
 
 .title{

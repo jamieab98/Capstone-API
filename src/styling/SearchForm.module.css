@@ -1,0 +1,54 @@
+.Form{
+    display: flex;
+    width: 100%;
+}
+
+.SearchForm{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.FormTitle{
+    width: 15%;
+    text-align: center;
+}
+
+.Form{
+    display: flex;
+    align-items: center;
+}
+
+.FormInputs{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%
+}
+
+.FormInput{
+    height: 20px;
+}
+
+.SearchButton{
+    height: 20px
+}
+
+.CountryInput{
+    display: flex;
+    flex-direction: column;
+}
+
+.RegionInput{
+    display: flex;
+    flex-direction: column;
+}
+
+.PageButtons{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    margin-top: 25px;
+}
