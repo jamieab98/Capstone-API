@@ -8,6 +8,7 @@
 
 .CourseCard{
     border: 1px solid black;
+    border-radius: 20px;
     background-color: #6b7c98;
     width: 24%;
     display: flex;
