@@ -8,12 +8,16 @@ function App(){
   const [courseData, setCourseData] = useState([])
 
   return(
-    <div className={styles.app}>
-      <h1 className={styles.title}>U-Discovery</h1>
-      <SearchForm setCourseData={setCourseData}/>
-      <br/>
-      <Courses courseData={courseData}/>
-    </div>
+    <>
+      <div className={styles.app}>
+        <h1 className={styles.title}>U-Discovery</h1>
+        <SearchForm setCourseData={setCourseData}/>
+        <br/>
+      </div>
+      <div>
+        <Courses courseData={courseData}/>
+      </div>
+    </>
   )
 }
 

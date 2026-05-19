@@ -1,14 +1,16 @@
+import styles from "./styling/Courses.module.css"
+
 function Courses({courseData}){
     
     return(
-        <div>
+        <div className={styles.CoursesContainer}>
             {courseData.map((course)=>(
-                <div key={course['id']}>
+                <div key={course['id']} className={styles.CourseCard}>
                     <div>{course['name']}</div>
                     <div>{course['country_code']}, {course['region_code']}, {course['locality']}</div>
                     <div>{course['holes']}</div>
                     <div>{course['verification_strength']}</div>
-                    <div>{course['website']}</div>
+                    <div className={styles.Website}>{course['website']}</div>
                     <br/>
                 </div>
             ))}
