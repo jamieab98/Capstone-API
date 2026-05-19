@@ -23,10 +23,10 @@ function SearchForm({setCourseData}){
 
     function setUrl(){
         if (country != "" && region != ""){
-            url = `${url}?country=${country}&region=${region}&limit=20offset=${offset}`
+            url = `${url}?country=${country}&region=${region}&limit=20&offset=${offset}`
         }
         else if (country != "" && region == ""){
-            url = `${url}?country=${country}&limit=20offset=${offset}`
+            url = `${url}?country=${country}&limit=20&offset=${offset}`
         }
         else if(country == "" && region != ""){
             return(console.log('Must provide a country code if searching by region'))
@@ -37,6 +37,8 @@ function SearchForm({setCourseData}){
     }
 
     function fetchData(){
+        console.log(offset)
+        console.log(url)
         fetch(url)
         .then(response=>response.json())
         .then((data)=>{
