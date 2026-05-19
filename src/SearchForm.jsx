@@ -51,6 +51,7 @@ function SearchForm({setCourseData}){
     function handleSearch(e){
         e.preventDefault()
         setHasSearched(true)
+        setOffset(0)
         setUrl()
         fetchData()
     }
