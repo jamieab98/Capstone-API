@@ -37,8 +37,6 @@ function SearchForm({setCourseData}){
     }
 
     function fetchData(){
-        console.log(offset)
-        console.log(url)
         fetch(url)
         .then(response=>response.json())
         .then((data)=>{
