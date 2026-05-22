@@ -1,0 +1,14 @@
+.navigation{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.link{
+    border: 1px solid black;
+    background: #E9E6E7;
+    text-decoration: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
