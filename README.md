@@ -1,17 +1,15 @@
-# React + Vite
+Project Title:
+Capstone API React Project
+U-Discovery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Description:
+This is an application that allows a user to search for discgolf courses around the world. Whether they are searching for courses for an upcoming trip they're taking or just curious what courses are in other countries, they can use the app.
 
-Currently, two official plugins are available:
+Setup:
+To use this application, download the repository, navigate to it, and make sure you install the following packages:
+    react-router-dom
+    react
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# Capstone-API
+API used:
+https://io.discgolfapi.com/v1/courses
+The above link is the base url that was used. Depending on the inputs provided by the user, this would have been modified to accomodate the user's search.
