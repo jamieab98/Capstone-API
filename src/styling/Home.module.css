@@ -1,0 +1,23 @@
+.Home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Heading{
+    font-size: 40px;
+}
+
+.Description{
+    font-size: 25px;
+    text-align: center;
+    width: 60%;
+    margin-bottom: 40px;
+}
+
+.Direction{
+    font-size: 25px;
+    text-align: center;
+    width: 60%
+    
+}
